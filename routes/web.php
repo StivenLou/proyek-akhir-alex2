@@ -1,5 +1,8 @@
 <?php
 
+use App\Doctors;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\DoctorsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +17,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.main');
 });
 
-Route::get('student/index','StudentController@index');
+
+Route::resource('doctors', 'DoctorsController');
+// Route::get('doctors', [DoctorsController::class, 'index'])->name('doctors.index');
+// Route::post('doctors', [DoctorsController::class, 'store'])->name('doctors.store');
+// Route::get('doctors/create', [DoctorsController::class, 'create'])->name('doctors.create');
+// Route::get('doctors/{doctor}', [DoctorsController::class, 'show'])->name('doctors.show');
+// Route::get('doctors/{docto}', [DoctController::class, 'show'])->name('doct.show');
+// Route::put('doctors/{doctor}', [DoctorsController::class, 'update'])->name('doctors.update');
+// Route::delete('doctors/{doctor}', [DoctorsController::class, 'destroy'])->name('doctors.destroy');
+// Route::get('doctors/{doctor}/edit', [DoctorsController::class, 'edit'])->name('doctors.edit');
+Route::resource('patients', 'PatientsController');
+Route::resource('polyclinics', 'PolyclinicsController');
